@@ -42,7 +42,6 @@ There you will find:
 -   HITS Research Report
 -   HITS Research Presentation
 
-You can find an example document
-[here](https://github.com/jmbuhr/hdReports/exampleReport/exampleReport.html)
+This is what parts of the Research Report look like:
 
 ![Example for the Research Report](images/paste-48FF489A.png)
