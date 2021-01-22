@@ -1,0 +1,163 @@
+---
+title: |
+  TODO: title
+subtitle: ""
+author: 'TODO: author'
+date: 'latest revision: `r Sys.Date()`'
+output:
+  bookdown::html_document2:
+    css: 'assets/www/hdReport.css'
+    number_sections: false
+    theme: flatly
+    toc: true
+    toc_float: true
+    toc_collapsed: false
+    code_download: true
+bibliography: 'references.bib'
+link-citations: true
+---
+
+```{r setup, include=FALSE}
+options(tidyverse.quiet = TRUE)
+
+library(glue)
+library(knitr)
+library(tidyverse)
+library(patchwork)
+library(ragg)
+
+knitr::opts_chunk$set(
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  error = FALSE,
+  fig.path = 'output/figures/',
+  fig.align = 'center',
+  fig.show = "hold",
+  dev = "ragg_png",
+  fig.retina = 3,
+  comment = ""
+)
+
+HITS_COL <- "#1E4287"
+HITS_GREEN <- "#019050"
+HITS_MAGENTA <- "#c3006b"
+HITS_YELLOW <- "#ffcc00"
+
+theme_set(ggthemes::theme_tufte(base_family = "Roboto") %+%
+          theme(plot.title.position = "plot")
+)
+```
+
+## Different Text for different output formats
+
+```{r, results='asis'}
+if (is_html_output()) {
+  cat("
+> **Dear reader**: You are holding in your hands the digital
+  version of this document.
+")
+}
+if (is_latex_output()) {
+  cat("
+> **Dear reader**: You are holding in your hands the
+  print version of this document.
+")
+}
+```
+
+\newpage
+
+# Abbreviations and conventions {.unnumbered .unlisted .toc-ignore}
+
+- AA: Amino Acid
+
+\newpage
+
+
+# Introduction
+
+## Adding Protein structures from RCSB with mol*
+
+Keep this html code at the top of your document
+
+<link rel="stylesheet" type="text/css" href="https://molstar.org/viewer/molstar.css" data-external="1"/>
+<script type="text/javascript" src="https://molstar.org/viewer/molstar.js" data-external="1"></script>
+
+Then add protein structures with:
+
+<div id="app1" class="app"></div>
+
+<script type="text/javascript">
+var viewer1 = new molstar.Viewer('app1', {
+layoutIsExpanded: false,
+layoutShowControls: false,
+layoutShowRemoteState: false,
+layoutShowSequence: true,
+layoutShowLog: false,
+layoutShowLeftPanel: true,
+viewportShowExpand: true,
+viewportShowSelectionMode: false,
+viewportShowAnimation: false,
+pdbProvider: "rcsb",
+emdbProvider: "rcsb",
+});
+viewer1.loadPdb("7JW2");
+</script>
+
+They will only appear in the html version. For multiple structures make sure to increment the number after `app` and `viewer` in the `div` and `script` sections.
+
+# Experiments and results
+
+## First experiment
+
+(ref:label-1) Long caption. Can contain **markdown** and citations, but no line breaks. Dogs from Wikipedia.
+
+```{r label-1, fig.cap='(ref:label-1)', out.width='50%', fig.scap='Short caption'}
+include_graphics("https://upload.wikimedia.org/wikipedia/commons/e/ea/Dog_coat_variation.png")
+```
+
+## Making Plots
+
+```{r some-plot}
+mtcars %>% 
+  ggplot(aes(disp, qsec, color = gear)) +
+  geom_point() +
+  labs(title = "Example Plot")
+```
+
+
+## Embedding YouTube videos
+
+```{r, results='asis'}
+if (is_html_output()) {
+  cat(
+'
+<iframe width="560" height="315" src="https://www.youtube.com/embed/byDZTO1aNkQ" data-external="1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+')
+} else {
+  cat(
+'
+<https://www.youtube.com/watch?v=byDZTO1aNkQ>
+'
+  )
+}
+```
+
+# Discussion and outlook
+
+# Methods
+
+## Method 1
+
+Made with rmarkdown [@allaireRmarkdownDynamicDocuments2020]!
+
+# Supplementary figures {.unnumbered .toc-ignore .unlisted}
+
+\newpage
+
+# References {.unnumbered}
+

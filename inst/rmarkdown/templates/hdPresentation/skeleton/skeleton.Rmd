@@ -4,7 +4,7 @@ title: |
 subtitle: 'TODO: title'
 author: |
   TODO: author<br>
-  Insittute, Group, Prof.
+  Institute, Group, Prof.
 date: 'latest revision: `r Sys.Date()`'
 output:
   xaringan::moon_reader:
