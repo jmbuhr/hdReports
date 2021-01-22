@@ -1,0 +1,174 @@
+---
+title: |
+  TODO: title
+author: 'TODO: Name'
+subtitle: "TODO: Type of Thesis"
+date: 'Month Year'
+birthplace: 'TODO: city'
+month: 'TODO month'
+year: 'TODO year'
+institution: |
+  TODO
+  Uni\
+  Faculty 1\
+  Faculty 2\
+  \textbf{Course of studies}
+declaration: true
+institute: |
+  TODO: Institute
+research_group: |
+  TODO: Group
+begin_thesis: 'TODO: 01.01.2020'
+end_thesis: 'TODO: 01.01.2020'
+thesis_type: 'TODO: thesis type'
+abstract: |
+  TODO: abstract
+advisor1: |
+  TODO
+  Name \newline
+  Group\newline
+  Institute\newline (Abbreviation)
+advisor2: |
+  TODO
+  Name \newline
+  Group\newline
+  Institute\newline (Abbreviation)
+output:
+  bookdown::html_document2:
+    anchor_sections: true
+    self_contained: true
+    css: 'assets/www/hdReport.css'
+    number_sections: true
+    theme: flatly
+    toc: true
+    toc_float:
+      collapsed: true
+    toc_collapsed: false
+    code_download: true
+    code_folding: hide
+  bookdown::pdf_document2:
+    template: 'assets/template.tex'
+    number_sections: true
+    extra_dependencies: []
+fig_caption: true
+bibliography: "references.bib"
+link-citations: true
+lot: true
+lof: true
+links-as-notes: true
+csl-refs: true
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE,
+                      fig.pos = "!ht",
+                      fig.align = "center",
+                      comment = "")
+```
+
+
+## Different Text for different output formats
+
+```{r, results='asis'}
+if (is_html_output()) {
+  cat("
+> **Dear reader**: You are holding in your hands the digital
+  version of this document.
+")
+}
+if (is_latex_output()) {
+  cat("
+> **Dear reader**: You are holding in your hands the
+  print version of this document.
+")
+}
+```
+
+\newpage
+
+# Abbreviations and conventions {.unnumbered .unlisted .toc-ignore}
+
+- AA: Amino Acid
+
+
+\newpage
+
+# Acknowledgements {.unnumbered .unlisted .toc-ignore}
+
+# Introduction
+
+## Adding Protein structures from RCSB with mol*
+
+Keep this html code at the top of your document
+
+<link rel="stylesheet" type="text/css" href="https://molstar.org/viewer/molstar.css" data-external="1"/>
+<script type="text/javascript" src="https://molstar.org/viewer/molstar.js" data-external="1"></script>
+
+Then add protein structures with:
+
+<div id="app1" class="app"></div>
+
+<script type="text/javascript">
+var viewer1 = new molstar.Viewer('app1', {
+layoutIsExpanded: false,
+layoutShowControls: false,
+layoutShowRemoteState: false,
+layoutShowSequence: true,
+layoutShowLog: false,
+layoutShowLeftPanel: true,
+viewportShowExpand: true,
+viewportShowSelectionMode: false,
+viewportShowAnimation: false,
+pdbProvider: "rcsb",
+emdbProvider: "rcsb",
+});
+viewer1.loadPdb("7JW2");
+</script>
+
+They will only appear in the html version. For multiple structures make sure to increment the number after `app` and `viewer` in the `div` and `script` sections.
+
+# Experiments and results
+
+## First experiment
+
+(ref:label-1) Long caption. Can contain **markdown** and citations, but no line breaks. Dogs from Wikipedia.
+
+```{r label-1, fig.cap='(ref:label-1)', out.width='50%', fig.scap='Short caption'}
+include_graphics("https://upload.wikimedia.org/wikipedia/commons/e/ea/Dog_coat_variation.png")
+```
+
+## Embedding YouTube videos
+
+```{r, results='asis'}
+if (is_html_output()) {
+  cat(
+'
+<iframe width="560" height="315" src="https://www.youtube.com/embed/byDZTO1aNkQ" data-external="1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+</iframe>
+
+')
+} else {
+  cat(
+'
+<https://www.youtube.com/watch?v=byDZTO1aNkQ>
+'
+  )
+}
+```
+
+# Discussion and outlook
+
+# Methods
+
+## Method 1
+
+Made with rmarkdown [@allaireRmarkdownDynamicDocuments2020]!
+
+# Supplementary figures {.unnumbered .toc-ignore .unlisted}
+
+\newpage
+
+# References {.unnumbered}
+

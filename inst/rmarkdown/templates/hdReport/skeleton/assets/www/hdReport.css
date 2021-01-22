@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --hits-color: #1E4287;
+  --dark-grey: #2e3135;
+  --hits-magenta: #c3006b;
+  --hits-yellow: #ffcc00;
+  --hits-green: #019050;
+  --text-color: #0b1014;
+  --old-text: #2C3E50;
+}
+
+a {
+  color: var(--hits-color);
+}
+
+a:hover {
+  color: var(--hits-color);
+}
+
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+    background-color: var(--hits-color);
+    border-color: var(--hits-color);
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  color: var(--text-color);
+}
+
+.caption {
+  color: var(--dark-grey);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* font-family: Miriam Libre, sans-serif; */
+  font-family: Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 1.9em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+div.fullwidth, table.fullwidth { max-width: 90%; }
+div.fullwidth > * { width: auto; }
+
+div.fullwidth p.caption {
+  margin-right: 0;
+  max-width: 33%;
+}
+
+.fullwidth { max-width: 90%;
+             clear:both; }
+
+.app {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: 0 0 10.5px;
+}

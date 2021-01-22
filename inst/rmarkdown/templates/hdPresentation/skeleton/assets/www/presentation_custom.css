@@ -1,0 +1,103 @@
+
+.caption {
+  color: #797979;
+}
+
+.inverse .caption {
+  color: #797979;
+}
+
+.remark-slide-number {
+  position: inherit;
+}
+
+.remark-slide-number .progress-bar-container {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  display: block;
+  left: 0;
+  right: 0;
+}
+
+.remark-slide-number .progress-bar {
+  height: 100%;
+  background-color: #1E4287;
+}
+
+.noleftmargin {
+  padding-left: 0;
+}
+
+.nomargins {
+  padding: 0 0 0 0;
+}
+
+.remark-slide table {
+    font-size: small;
+}
+
+.title-slide h1 {
+  font-size: 2.3em;
+}
+
+.title-slide h3 {
+  font-size: 1.3em;
+}
+
+
+div.my-footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 20px;
+    width: 100%;
+}
+
+div.my-footer > p {
+    font-size: 11pt;
+    color: var(--text-color);
+    position: absolute;
+    right: 15px;
+    bottom: 2px;
+    z-index: 1;
+}
+
+.highlight-last-item :not(.my-footer) p {
+  opacity: 0.5;
+}
+.highlight-last-item :not(.my-footer) p:last-of-type {
+  opacity: 1;
+}
+
+.animate-last-item :not(.my-footer) p:last-of-type {
+  animation: fadeInDown;
+  animation-duration: 0.8s;
+}
+
+.cover-rectangle {
+  height: 85%;
+  z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 5%;
+  margin-right: 10%;
+  background-color: var(--background-color);
+  animation-name: revealplot;
+  animation-delay: 0s;
+  animation-duration: 102s;
+}
+
+@keyframes revealplot {
+  from {margin-left: 17%}
+  to {margin-left: 100%}
+}
+
+.background-video {
+  z-index: 0;
+  position: fixed;
+}
+
+.remark-slide-content .hljs-github {
+  z-index: 2;
+}

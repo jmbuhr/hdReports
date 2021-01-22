@@ -1,0 +1,15 @@
+Package: hdReports
+Title: Rmarkdown Templates for Heidelberg University Bacherlor and Masters's Thesis as well as Research Reports at HITS
+Version: 0.0.1.9000
+Authors@R: 
+    person(given = "Jannik",
+           family = "Buhr",
+           role = c("aut", "cre"),
+           email = "jannik.m.buhr@gmail.com",
+           comment = c(ORCID = "0000-0002-9350-2629"))
+Description: Rmarkdown Templates for Heidelberg University Bacherlor and Masters's Thesis as well as Research Reports at HITS.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
