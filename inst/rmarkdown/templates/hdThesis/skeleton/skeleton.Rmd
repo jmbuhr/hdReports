@@ -91,7 +91,6 @@ if (is_latex_output()) {
 
 - AA: Amino Acid
 
-
 \newpage
 
 # Acknowledgements {.unnumbered .unlisted .toc-ignore}
@@ -100,33 +99,19 @@ if (is_latex_output()) {
 
 ## Adding Protein structures from RCSB with mol*
 
-Keep this html code at the top of your document
+Keep this code at the top of your document:
 
-<link rel="stylesheet" type="text/css" href="https://molstar.org/viewer/molstar.css" data-external="1"/>
-<script type="text/javascript" src="https://molstar.org/viewer/molstar.js" data-external="1"></script>
+```{r}
+hdReports::init_molstar()
+```
 
-Then add protein structures with:
+Then embed structures with:
 
-<div id="app1" class="app"></div>
+```{r}
+hdReports::include_structure("1Q2W")
+```
 
-<script type="text/javascript">
-var viewer1 = new molstar.Viewer('app1', {
-layoutIsExpanded: false,
-layoutShowControls: false,
-layoutShowRemoteState: false,
-layoutShowSequence: true,
-layoutShowLog: false,
-layoutShowLeftPanel: true,
-viewportShowExpand: true,
-viewportShowSelectionMode: false,
-viewportShowAnimation: false,
-pdbProvider: "rcsb",
-emdbProvider: "rcsb",
-});
-viewer1.loadPdb("7JW2");
-</script>
-
-They will only appear in the html version. For multiple structures make sure to increment the number after `app` and `viewer` in the `div` and `script` sections.
+They will only appear in the html version.
 
 # Experiments and results
 

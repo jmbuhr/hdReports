@@ -35,6 +35,8 @@ Learn more about `renv` [here](https://rstudio.github.io/renv/)
 
 ## Usage
 
+### Templates
+
 In Rstudio create a new Rmarkdown file and choose **From Template**.
 There you will find:
 
@@ -45,3 +47,19 @@ There you will find:
 This is what parts of the Research Report look like:
 
 ![Example for the Research Report](images/paste-48FF489A.png)
+
+### Embedding protein structures from RCSB with mol\*
+
+Keep this code at the top of your document:
+
+``` r
+hdReports::init_molstar()
+```
+
+Then embed structures with:
+
+``` r
+hdReports::include_structure("1Q2W")
+```
+
+They will only appear in the html version.
