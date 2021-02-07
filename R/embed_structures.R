@@ -26,7 +26,15 @@ include_structure <- function(pdb_id) {
   label <- stringr::str_remove_all(label, "\\W")
   knitr::asis_output(
     glue::glue(
-      '
+'
+<style>
+.app {{
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin: 0 0 10.5px;
+}}
+</style>
 <div id="app{label}" class="app"></div>
 
 <script type="text/javascript">
